@@ -1,11 +1,9 @@
+import { useContext } from "react"
+import LangContext from "../../contexts/LangContext"
 import useInput from "../../hooks/useInput"
 
-interface FormProps {
-    lang: 'es' | 'en';
-    toggleLang: () => void;
-}
-
-const Form = ({ lang, toggleLang }: FormProps) => {
+const Form = () => {
+    const { lang, toggleLang } = useContext(LangContext)
     const [email, setEmail] = useInput('')
     const [password, setPassword] = useInput('')
 
