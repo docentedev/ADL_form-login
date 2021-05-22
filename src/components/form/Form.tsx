@@ -19,7 +19,7 @@ const Form = () => {
         <div>
             <button className="btn btn-sm btn-light" onClick={toggleLang}>{lang === 'es' ? `Cambiar idioma a Ingles` : `Change language to Spanish`}</button>
             <form onSubmit={handlerSubmit}>
-                <label>{lang === 'es' ? `Correo Electronico` : `Email`}</label>
+                <label>{lang === 'es' ? `Correo Electrónico` : `Email`}</label>
                 <input type="email" className="form-control" value={email} onChange={setEmail} />
                 <label>{lang === 'es' ? `Contraseña` : `Password`}</label>
                 <input type="password" className="form-control" value={password} onChange={setPassword} />
