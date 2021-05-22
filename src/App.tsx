@@ -1,12 +1,12 @@
 import './App.css'
-import Login from './containers/login/Login'
+import Home from './containers/home/Home'
 
 function App() {
   return (
     <div className="container">
-      <Login />
+      <Home />
     </div>
   );
 }
 
-export default App;
+export default App
