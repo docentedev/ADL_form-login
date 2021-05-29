@@ -7,7 +7,7 @@ const useInput = (initialState: string) => {
         const { value } = event.target
         setVa(value)
     }
-    return [val, handlertChange]
+    return [val, handlertChange, setVa]
 }
 
 export default useInput

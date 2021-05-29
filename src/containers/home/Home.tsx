@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import Table from '../../components/table/Table'
+import FormularioCreación from '../../components/formulario-creación/FormularioCreación'
+import Listado from '../../components/lista/Listado'
 import ProductContext from '../../contexts/ProductContext'
 
 const Home = () => {
@@ -9,20 +10,23 @@ const Home = () => {
         price: 500,
     }])
 
-    const addProduct = () => {
+    const addProduct = (product: any) => {
         // generamos un id a partir de la fecha para luego poder buscar
         // ademas de esta manera no se repetira
         const id = new Date().getTime()
         console.log(id)
+        const newData = [...products, { id, ...product }]
+        setProduct(newData)
     }
 
     const delProduct = (id: any) => {
         console.log(`delete ${id}`);
-        
+        const newData = products.filter((e: any) => e.id !== id)
+        setProduct(newData)
     }
 
     const getProduct = () => {
-        
+
     }
 
     return (
@@ -33,7 +37,8 @@ const Home = () => {
             getProduct,
         }}>
             <div className="col-12 col-sm-6 offset-sm-3">
-                <Table />
+                <FormularioCreación onSubmit={addProduct} />
+                <Listado />
             </div>
         </ProductContext.Provider>
     )
