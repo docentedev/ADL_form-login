@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import FormularioCreación from '../../components/formulario-creación/FormularioCreación'
+import FormularioCreacion from '../../components/formulario-creacion/FormularioCreacion'
 import Listado from '../../components/lista/Listado'
 import ProductContext from '../../contexts/ProductContext'
 
@@ -25,8 +25,8 @@ const Home = () => {
         setProduct(newData)
     }
 
-    const getProduct = () => {
-
+    const getProduct = (id: any) => {
+        return products.find((e: any) => e.id === id)
     }
 
     return (
@@ -36,9 +36,11 @@ const Home = () => {
             delProduct,
             getProduct,
         }}>
-            <div className="col-12 col-sm-6 offset-sm-3">
-                <FormularioCreación onSubmit={addProduct} />
-                <Listado />
+            <div className="row">
+                <div className="col-12 col-sm-6 offset-sm-3">
+                    <FormularioCreacion onSubmit={addProduct} />
+                    <Listado />
+                </div>
             </div>
         </ProductContext.Provider>
     )

@@ -1,10 +1,11 @@
 import useInput from "../../hooks/useInput"
+import styles from './FormularioCreacion.module.css'
 
 interface FormProps {
     onSubmit: (product: any) => void;
 }
 
-const Form = ({ onSubmit }: FormProps) => {
+const FormularioCreacion = ({ onSubmit }: FormProps) => {
     const [name, setName, setNameValue] = useInput('')
     const [price, setPrice, setPriceValue] = useInput('0')
     const disabled = () => name === '' || price === ''
@@ -26,15 +27,18 @@ const Form = ({ onSubmit }: FormProps) => {
     }
     return (
         <div>
-            <form onSubmit={handlerSubmit}>
+            <form onSubmit={handlerSubmit} className={styles.form}>
                 <div className="card mt-4">
+                    <div className={styles.cardHeader}>
+                        Add new Product
+                    </div>
                     <div className="card-body">
-                        <label>Name</label>
+                        <label className={styles.label}>Name</label>
                         <input className="form-control" value={name} onChange={setName} />
-                        <label>Price</label>
+                        <label className={styles.label}>Price</label>
                         <input className="form-control" min={0} type="number" value={validNumber(price)} onChange={setPrice} />
                     </div>
-                    <div className="card-footer">
+                    <div className={styles.cardFooter}>
                         <button className="btn btn-primary" disabled={disabled()}>
                             Save
                     </button>
@@ -45,4 +49,4 @@ const Form = ({ onSubmit }: FormProps) => {
     )
 }
 
-export default Form
+export default FormularioCreacion
