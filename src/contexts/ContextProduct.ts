@@ -1,6 +1,6 @@
 import { createContext } from 'react'
 
-const ProductContext = createContext({
+const ContextProduct = createContext({
     products: [],
     addProduct: (product: any) => {},
     getProduct: (id: any) => {},
@@ -8,4 +8,4 @@ const ProductContext = createContext({
     updateProduct: (product: any) => {},
 })
 
-export default ProductContext
+export default ContextProduct

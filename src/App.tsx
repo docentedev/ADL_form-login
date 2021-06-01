@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom'
 
 import Home from './containers/home/Home'
-import ProductContext from './contexts/ProductContext';
+import ContextProduct from './contexts/ContextProduct';
 import { useState } from 'react';
 import Create from './containers/create/Create';
 import Detail from './containers/detail/Detail';
@@ -54,7 +54,7 @@ function App() {
   }
 
   return (
-    <ProductContext.Provider value={{
+    <ContextProduct.Provider value={{
       products,
       addProduct,
       delProduct,
@@ -86,7 +86,7 @@ function App() {
           </Switch>
         </div>
       </Router>
-    </ProductContext.Provider >
+    </ContextProduct.Provider >
   );
 }
 
