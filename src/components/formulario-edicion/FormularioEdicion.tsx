@@ -1,16 +1,24 @@
+import React, { useEffect } from "react"
 import { useHistory } from "react-router"
+import { Link } from "react-router-dom"
 import useInput from "../../hooks/useInput"
-import styles from './FormularioCreacion.module.css'
+import styles from './FormularioEdicion.module.css'
 
 interface FormProps {
     onSubmit: (product: any) => void;
+    product: any,
 }
 
-const FormularioCreacion = ({ onSubmit }: FormProps) => {
+const FormularioEdicion = ({ onSubmit, product }: FormProps) => {
     const history = useHistory()
     const [name, setName, setNameValue] = useInput('')
-    const [price, setPrice, setPriceValue] = useInput('0')
+    const [price, setPrice, setPriceValue] = useInput(`0`)
     const disabled = () => name === '' || price === ''
+
+    useEffect(() => {
+        setNameValue(product.name)
+        setPriceValue(product.price)
+    }, [product, setNameValue, setPriceValue])
 
     const validNumber = (p: string) => {
         if (p === '') return '';
@@ -21,6 +29,7 @@ const FormularioCreacion = ({ onSubmit }: FormProps) => {
     const handlerSubmit = (event: any) => {
         event.preventDefault()
         onSubmit({
+            id: product.id,
             name,
             price,
         })
@@ -33,7 +42,7 @@ const FormularioCreacion = ({ onSubmit }: FormProps) => {
             <form onSubmit={handlerSubmit} className={styles.form}>
                 <div className="card mt-4">
                     <div className={styles.cardHeader}>
-                        Add new Product
+                        Edit Product {JSON.stringify(product)}
                     </div>
                     <div className="card-body">
                         <label className={styles.label}>Name</label>
@@ -42,9 +51,12 @@ const FormularioCreacion = ({ onSubmit }: FormProps) => {
                         <input className="form-control" min={0} type="number" value={validNumber(price)} onChange={setPrice} />
                     </div>
                     <div className={styles.cardFooter}>
-                        <button className="btn btn-primary" disabled={disabled()}>
-                            Save
-                    </button>
+                        <div className="btn-group">
+                            <button className="btn btn-primary btn-sm" disabled={disabled()}>
+                                Save
+                            </button>
+                            <Link to="/" className="btn btn-secondary btn-sm">Go to home</Link>
+                        </div>
                     </div>
                 </div>
             </form>
@@ -52,4 +64,4 @@ const FormularioCreacion = ({ onSubmit }: FormProps) => {
     )
 }
 
-export default FormularioCreacion
+export default FormularioEdicion

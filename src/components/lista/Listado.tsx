@@ -1,60 +1,54 @@
-import { useContext, useState } from "react"
+import { useContext } from "react"
+import { Link } from "react-router-dom"
 import ProductContext from "../../contexts/ProductContext"
-import Detalle from "../detalle/Detalle"
 
 const Listado = () => {
-    const [product, setProduct] = useState(null)
     const context = useContext(ProductContext)
-    const setDelete = (product: any) => {
-        context.delProduct(product.id)
-    }
-
-
-    const setShowProduct = (product: any) => {
-        const p: any = context.getProduct(product.id)
-        setProduct(p)
-    }
-
-    const handlerCloseDetail = () => {
-        setProduct(null)
-    }
 
     return (
         <div>
-            {!product && <div className="card mt-4">
+            {<div className="card mt-4">
                 <div className="card-body">
-                    <table className="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Price</th>
-                                <th className="text-end">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {context.products.map((product: any) => (
-                                <tr key={`${product.id}`}>
-                                    <td>{product.name}</td>
-                                    <td>{product.price}</td>
-                                    <td className="text-end">
-                                        <div className="btn-group">
-                                            <button
-                                                className="btn btn-info btn-sm"
-                                                onClick={() => setShowProduct(product)}>
-                                                View</button>
-                                            <button
-                                                className="btn btn-sm btn-danger"
-                                                onClick={() => setDelete(product)}>
-                                                Remove</button>
-                                        </div>
-                                    </td>
+                    {context.products.length > 0 ? (
+                        <table className="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Price</th>
+                                    <th className="text-end">Actions</th>
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                {context.products.map((product: any) => (
+                                    <tr key={`${product.id}`}>
+                                        <td>{product.name}</td>
+                                        <td>{product.price}</td>
+                                        <td className="text-end">
+                                            <div className="btn-group">
+                                                <Link
+                                                    className="btn btn-primary btn-sm"
+                                                    to={`/detail/${product.id}`}>
+                                                    View</Link>
+                                                <Link
+                                                    className="btn btn-info btn-sm"
+                                                    to={`/edit/${product.id}`}>
+                                                    Edit</Link>
+                                                <Link
+                                                    className="btn btn-sm btn-warning"
+                                                    to={`/remove/${product.id}`}>
+                                                    Remove</Link>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>) : (
+                        <div>
+                            Not Items
+                        </div>
+                    )}
                 </div>
             </div>}
-            {product && <Detalle product={product} onClose={handlerCloseDetail} />}
         </div>
     )
 }
