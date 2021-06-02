@@ -32,7 +32,6 @@ function ContextProductManager({ children }: ContextProductManagerProps) {
     }
 
     const updateProduct = (product: any) => {
-        // return products.find((e: any) => e.id === id)
         console.log(product);
         const newData = products.map((p: any) => {
             if (p.id === product.id) {
