@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Route } from 'react-router-dom'
-import ContextLogin from '../../contexts/ContextLogin'
+import ContextLogin from '../../ContextLogin'
 
 interface PrivateRouteProps {
     component: React.ComponentType<any>;

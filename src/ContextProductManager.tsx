@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import ContextProduct from './contexts/ContextProduct';
+import ContextProduct from './ContextProduct';
 
 interface ContextProductManagerProps {
     children: JSX.Element;

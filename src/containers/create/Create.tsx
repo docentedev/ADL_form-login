@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import FormularioCreacion from "../../components/formulario-creacion/FormularioCreacion"
-import ContextProduct from "../../contexts/ContextProduct"
+import ContextProduct from "../../ContextProduct"
 
 const Create = () => {
     const context = useContext(ContextProduct)

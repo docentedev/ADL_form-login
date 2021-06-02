@@ -1,5 +1,4 @@
-import { useHistory } from "react-router"
-import useInput from "../../hooks/useInput"
+import useInput from '../../useInput'
 import styles from './FormularioCreacion.module.css'
 
 interface FormProps {
@@ -7,7 +6,6 @@ interface FormProps {
 }
 
 const FormularioCreacion = ({ onSubmit }: FormProps) => {
-    const history = useHistory()
     const [name, setName, setNameValue] = useInput('')
     const [price, setPrice, setPriceValue] = useInput('0')
     const disabled = () => name === '' || price === ''
@@ -26,7 +24,6 @@ const FormularioCreacion = ({ onSubmit }: FormProps) => {
         })
         setNameValue('')
         setPriceValue('0')
-        history.push('/')
     }
     return (
         <div>

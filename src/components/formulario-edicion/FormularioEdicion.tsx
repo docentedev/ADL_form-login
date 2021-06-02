@@ -1,7 +1,5 @@
-import React, { useEffect } from "react"
-import { useHistory } from "react-router"
-import { Link } from "react-router-dom"
-import useInput from "../../hooks/useInput"
+import { useEffect } from 'react'
+import useInput from '../../useInput'
 import styles from './FormularioEdicion.module.css'
 
 interface FormProps {
@@ -10,7 +8,6 @@ interface FormProps {
 }
 
 const FormularioEdicion = ({ onSubmit, product }: FormProps) => {
-    const history = useHistory()
     const [name, setName, setNameValue] = useInput('')
     const [price, setPrice, setPriceValue] = useInput(`0`)
     const disabled = () => name === '' || price === ''
@@ -35,7 +32,6 @@ const FormularioEdicion = ({ onSubmit, product }: FormProps) => {
         })
         setNameValue('')
         setPriceValue('0')
-        history.push('/')
     }
     return (
         <div>
@@ -55,7 +51,7 @@ const FormularioEdicion = ({ onSubmit, product }: FormProps) => {
                             <button className="btn btn-primary btn-sm" disabled={disabled()}>
                                 Save
                             </button>
-                            <Link to="/" className="btn btn-secondary btn-sm">Go to home</Link>
+                            <a href="/" className="btn btn-secondary btn-sm">Go to home</a>
                         </div>
                     </div>
                 </div>

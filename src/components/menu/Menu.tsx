@@ -1,26 +1,22 @@
-import {
-    Link,
-    NavLink,
-} from 'react-router-dom'
 
 const Menu = () => {
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
-                <Link className="navbar-brand" to="/">Navbar</Link>
+                <a className="navbar-brand" href="/">Navbar</a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon" />
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <NavLink exact className="nav-link" to="/" activeClassName="active">Home</NavLink>
+                            <a className="nav-link" href="/">Home</a>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="/list" activeClassName="active">List</NavLink>
+                            <a className="nav-link" href="/">List</a>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="/create" activeClassName="active">Create</NavLink>
+                            <a className="nav-link" href="/">Create</a>
                         </li>
                     </ul>
                 </div>

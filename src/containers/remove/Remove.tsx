@@ -1,9 +1,8 @@
 import { useState, useContext, useEffect } from "react"
-import { useParams, Link, useHistory } from "react-router-dom"
-import ContextProduct from "../../contexts/ContextProduct"
+import { useParams } from "react-router-dom"
+import ContextProduct from "../../ContextProduct"
 
 const Remove = () => {
-    const history = useHistory()
     const { id }: { id: string } = useParams()
     const [product, setProduct]: any = useState({})
     const context = useContext(ContextProduct)
@@ -15,7 +14,6 @@ const Remove = () => {
 
     const handlerRemove = () => {
         context.delProduct(Number.parseInt(id))
-        history.push('/')
     }
 
     return (
@@ -30,14 +28,14 @@ const Remove = () => {
                         <div className="card-footer">
                             <div className="btn-group">
                                 <button className="btn btn-danger btn-sm" onClick={handlerRemove}>Yes</button>
-                                <Link to="/" className="btn btn-primary btn-sm">No</Link>
+                                <a href="/" className="btn btn-primary btn-sm">No</a>
                             </div>
                         </div>
                     </div>
                 ) : (
                     <div className="alert alert-danger mt-4">
                         <div>Not Found</div>
-                        <Link to="/" className="btn btn-danger btn-sm">Go to home</Link>
+                        <a href="/" className="btn btn-danger btn-sm">Go to home</a>
                     </div>
                 )}
             </div>

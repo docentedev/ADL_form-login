@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect } from "react"
-import { useParams, Link } from "react-router-dom"
-import ContextProduct from "../../contexts/ContextProduct"
+import { useParams } from "react-router-dom"
+import ContextProduct from "../../ContextProduct"
 
 const Detail = () => {
     const { id }: { id: string } = useParams()
@@ -22,13 +22,13 @@ const Detail = () => {
                             price: {product.price}
                         </div>
                         <div className="card-footer">
-                            <Link to="/" className="btn btn-primary btn-sm">Go to home</Link>
+                            <a href="/" className="btn btn-primary btn-sm">Go to home</a>
                         </div>
                     </div>
                 ) : (
                     <div className="alert alert-danger mt-4">
                         <div>Not Found</div>
-                        <Link to="/" className="btn btn-danger btn-sm">Go to home</Link>
+                        <a href="/" className="btn btn-danger btn-sm">Go to home</a>
                     </div>
                 )}
             </div>

@@ -1,6 +1,5 @@
-import { useContext } from "react"
-import { Link } from "react-router-dom"
-import ContextProduct from "../../contexts/ContextProduct"
+import { useContext } from 'react'
+import ContextProduct from '../../ContextProduct'
 
 const Listado = () => {
     const context = useContext(ContextProduct)
@@ -25,18 +24,18 @@ const Listado = () => {
                                         <td>{product.price}</td>
                                         <td className="text-end">
                                             <div className="btn-group">
-                                                <Link
+                                                <a
                                                     className="btn btn-primary btn-sm"
-                                                    to={`/detail/${product.id}`}>
-                                                    View</Link>
-                                                <Link
+                                                    href={`/detail/${product.id}`}>
+                                                    View</a>
+                                                <a
                                                     className="btn btn-info btn-sm"
-                                                    to={`/edit/${product.id}`}>
-                                                    Edit</Link>
-                                                <Link
+                                                    href={`/edit/${product.id}`}>
+                                                    Edit</a>
+                                                <a
                                                     className="btn btn-sm btn-warning"
-                                                    to={`/remove/${product.id}`}>
-                                                    Remove</Link>
+                                                    href={`/remove/${product.id}`}>
+                                                    Remove</a>
                                             </div>
                                         </td>
                                     </tr>

@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import FormularioEdicion from "../../components/formulario-edicion/FormularioEdicion"
-import ContextProduct from "../../contexts/ContextProduct"
+import ContextProduct from "../../ContextProduct"
 
 const Edit = () => {
     const { id }: { id: string } = useParams()

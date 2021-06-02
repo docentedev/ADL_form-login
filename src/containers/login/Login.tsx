@@ -1,9 +1,8 @@
-import React, { useContext, useState } from "react"
-import { useHistory, Redirect } from "react-router-dom"
-import ContextLogin from "../../contexts/ContextLogin"
+import { useContext, useState } from "react"
+import { Redirect } from "react-router-dom"
+import ContextLogin from "../../ContextLogin"
 
 const Login = () => {
-    const history = useHistory()
     const contextLogin = useContext(ContextLogin)
     const [username, setUsename] = useState('')
     const handlerChange = ({ target }: any) => {
@@ -12,7 +11,7 @@ const Login = () => {
 
     const handlerSubmit = (event: any) => {
         event.preventDefault()
-        contextLogin.logIn(username, () => history.push('/list'))
+        contextLogin.logIn(username, () => {/* Agregar redireccionamiento aquí */})
     }
 
     const disabled = () => username === ''
