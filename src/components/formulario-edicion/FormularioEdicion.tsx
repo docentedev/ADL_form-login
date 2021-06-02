@@ -42,7 +42,7 @@ const FormularioEdicion = ({ onSubmit, product }: FormProps) => {
             <form onSubmit={handlerSubmit} className={styles.form}>
                 <div className="card mt-4">
                     <div className={styles.cardHeader}>
-                        Edit Product {JSON.stringify(product)}
+                        Edit Product
                     </div>
                     <div className="card-body">
                         <label className={styles.label}>Name</label>

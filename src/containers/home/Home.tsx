@@ -1,4 +1,4 @@
-import Listado from '../../components/lista/Listado'
+import Listado from '../../components/listado/Listado'
 
 const Home = () => {
     return (

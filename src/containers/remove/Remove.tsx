@@ -1,12 +1,12 @@
 import { useState, useContext, useEffect } from "react"
 import { useParams, Link, useHistory } from "react-router-dom"
-import ProductContext from "../../contexts/ProductContext"
+import ContextProduct from "../../contexts/ContextProduct"
 
 const Remove = () => {
     const history = useHistory()
     const { id }: { id: string } = useParams()
     const [product, setProduct]: any = useState({})
-    const context = useContext(ProductContext)
+    const context = useContext(ContextProduct)
 
     useEffect(() => {
         const p: any = context.getProduct(Number.parseInt(id))

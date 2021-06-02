@@ -42,9 +42,7 @@ const FormularioCreacion = ({ onSubmit }: FormProps) => {
                         <input className="form-control" min={0} type="number" value={validNumber(price)} onChange={setPrice} />
                     </div>
                     <div className={styles.cardFooter}>
-                        <button className="btn btn-primary" disabled={disabled()}>
-                            Save
-                    </button>
+                        <button className="btn btn-primary" disabled={disabled()}>Save</button>
                     </div>
                 </div>
             </form>
